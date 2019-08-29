@@ -1,13 +1,12 @@
 from django.http import Http404
-from django.shortcuts import render
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django_filters import rest_framework as filters
 from TestTask.filters import OrganizationFilter
-from .serializers import CategorySerializer, NetworkSerializer, DistrictSerializer, ProductSerializer, \
-    OrganizationSerializer, OrganizationProductPriceSerializer, OrganizationDetailSerializer, ProductDetailSerializer
-from .models import Category, Network, District, Product, Organization, ProductPrice
+from .serializers import ProductSerializer, OrganizationSerializer, OrganizationDetailSerializer,\
+    ProductDetailSerializer
+from .models import Product, Organization
 
 
 class OrganizationListView(ListAPIView):

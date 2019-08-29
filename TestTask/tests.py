@@ -1,20 +1,19 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from rest_framework.test import APITestCase
 
-from TestTask.models import Product, Organization
+from TestTask.models import Product, Organization, District, Network, Category
 import json
 
 
-class TestViews(APITestCase):
+class TestViews(TestCase):
 
     def setUp(self):
         self.client = Client()
         self.product_list_url = reverse('products')
-        self.product_detail_url = reverse('product', args=['1'])
+        self.product_detail_url = reverse('product_detail', args=['1'])
         self.organization_list_url = reverse('organizations')
-        self.organization_detail_url = reverse('organization', args=['1'])
-        self.organization_by_district_url = reverse('organizations', args=['1'])
+        self.organization_detail_url = reverse('organization_detail', args=['1'])
+        self.organization_by_district_url = reverse('organizations_by_district', args=['1'])
 
     def test_product_list(self):
         response = self.client.get(self.product_list_url)
