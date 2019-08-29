@@ -4,8 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django_filters import rest_framework as filters
 from TestTask.filters import OrganizationFilter
-from .serializers import ProductSerializer, OrganizationSerializer, OrganizationDetailSerializer,\
-    ProductDetailSerializer
+from .serializers import ProductSerializer, OrganizationSerializer
 from .models import Product, Organization
 
 
@@ -16,7 +15,7 @@ class OrganizationListView(ListAPIView):
 
 class OrganizationDetail(APIView):
     queryset = Organization.objects.all()
-    serializer_class = OrganizationDetailSerializer
+    serializer_class = OrganizationSerializer
 
     def get_object(self, pk):
         try:
@@ -26,7 +25,7 @@ class OrganizationDetail(APIView):
 
     def get(self, request, pk, format=None):
         posts_data = self.get_object(pk)
-        serializer = OrganizationDetailSerializer(posts_data)
+        serializer = OrganizationSerializer(posts_data)
         return Response(serializer.data)
 
 
@@ -54,7 +53,7 @@ class ProductListView(ListAPIView):
 
 class ProductDetail(APIView):
     queryset = Product.objects.all()
-    serializer_class = ProductDetailSerializer
+    serializer_class = ProductSerializer
 
     def get_object(self, pk):
         try:
@@ -64,5 +63,5 @@ class ProductDetail(APIView):
 
     def get(self, request, pk, format=None):
         posts_data = self.get_object(pk)
-        serializer = ProductDetailSerializer(posts_data)
+        serializer = ProductSerializer(posts_data)
         return Response(serializer.data)

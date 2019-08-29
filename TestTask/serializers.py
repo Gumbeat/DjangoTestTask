@@ -44,25 +44,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
         fields = ['id', 'description', 'products', 'districts', 'network']
 
 
-class OrganizationDetailSerializer(serializers.ModelSerializer):
-    products = OrganizationProductPriceSerializer(many=True, source='product_price')
-    districts = DistrictSerializer(many=True, read_only=True)
-
-    class Meta:
-        depth = 1
-        model = Organization
-        fields = ['id', 'description', 'products', 'districts', 'network']
-
-
 class ProductSerializer(serializers.ModelSerializer):
-    organizations = ProductPriceSerializer(many=True, source='product_price')
-
-    class Meta:
-        model = Product
-        fields = ['id', 'name', 'category', 'organizations']
-
-
-class ProductDetailSerializer(serializers.ModelSerializer):
     organizations = ProductPriceSerializer(many=True, source='product_price')
 
     class Meta:
