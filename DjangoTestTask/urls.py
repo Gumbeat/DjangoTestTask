@@ -20,9 +20,9 @@ from TestTask.views import OrganizationListView, OrganizationDetail, ProductDeta
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('organizations/', OrganizationListView.as_view()),
-    path('organizations/<int:pk>/', OrganizationsByDistrictView.as_view()),
-    path('organization/<int:pk>/', OrganizationDetail.as_view()),
-    path('products/', ProductListView.as_view()),
-    path('product/<int:pk>/', ProductDetail.as_view()),
+    path('organizations/', OrganizationListView.as_view(), name='organizations'),
+    path('organizations/<int:pk>/', OrganizationsByDistrictView.as_view(), name='organizations_by_district'),
+    path('organization/<int:pk>/', OrganizationDetail.as_view(), name='organization_detail'),
+    path('products/', ProductListView.as_view(), name='products'),
+    path('product/<int:pk>/', ProductDetail.as_view(), name='product_detail'),
 ]
