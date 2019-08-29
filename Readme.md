@@ -5,7 +5,7 @@
 - [/products/](http://localhost:8000/products/) - *Список всех товаров*
 - [/product/{id}](http://localhost:8000/product/1/) - *Информация о выбранном товаре*
 #  
-##Filter parameters
+## Filter parameters
 - *product_name* - фильтрация по названию товара, находящегося в заведениях
 - *category* - фильтрация по категории товаров
 - *price_gte* - фильтрация по значению большему или равному цене товаров
