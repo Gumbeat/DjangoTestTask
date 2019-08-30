@@ -1,3 +1,11 @@
+## Setup and launch    
+    pip install -r requirements.txt
+    python manage.py runserver 
+#
+## Docker
+    docker build .
+    docker run -d --network=host    
+#
 ## URLS
 - [/organizations/](http://127.0.0.1:8000/organizations/) - *Список всех заведений*
 - [/organization/{id}](http://127.0.0.1:8000/organization/1/) - *Информация о выбранном заведении*
